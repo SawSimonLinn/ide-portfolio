@@ -1,4 +1,4 @@
-# [DevIDE Portfolio](https://ide-portfolio-chi.vercel.app/) — VS Code-Style Portfolio Template
+# [DevIDE Portfolio](https://ide-portfolio-chi.vercel.app/) - VS Code-Style Portfolio Template
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 15">
@@ -23,10 +23,10 @@ A portfolio that looks and feels like Visual Studio Code. Built with Next.js, Ty
 
 - IDE layout with file explorer, editor panel, and live preview
 - Multiple built-in themes (VS Code Dark, Light, Dracula, etc.)
-- Resizable panels — editor, preview, and terminal
+- Resizable panels - editor, preview, and terminal
 - Syntax-highlighted "code" files that display your real portfolio content
 - Fully responsive
-- Zero dependencies on external services — it's just a Next.js app
+- Zero dependencies on external services - it's just a Next.js app
 
 ---
 
@@ -67,7 +67,7 @@ Open that file and replace the placeholder data with your own. Here's what each 
 
 ---
 
-### Your Name & Bio — `aboutData`
+### Your Name & Bio - `aboutData`
 
 ```ts
 export const aboutData = {
@@ -85,7 +85,7 @@ export const aboutData = {
 
 ---
 
-### Skills — `skillsData`
+### Skills - `skillsData`
 
 ```ts
 export const skillsData: Record<string, string[]> = {
@@ -95,11 +95,11 @@ export const skillsData: Record<string, string[]> = {
 };
 ```
 
-Add or remove categories as you like — e.g. `"DevOps"`, `"Mobile"`, etc.
+Add or remove categories as you like - e.g. `"DevOps"`, `"Mobile"`, etc.
 
 ---
 
-### Experience — `experienceData`
+### Experience - `experienceData`
 
 Each job entry looks like this:
 
@@ -120,7 +120,7 @@ Add as many jobs as you need. Delete ones you don't need.
 
 ---
 
-### Projects — `projectsData`
+### Projects - `projectsData`
 
 Each project is keyed to a file path in the IDE file tree. By default there are three slots:
 
@@ -152,7 +152,7 @@ Edit each entry:
 
 ---
 
-### Contact — `contactData`
+### Contact - `contactData`
 
 ```ts
 export const contactData = {
@@ -165,11 +165,11 @@ export const contactData = {
 
 ---
 
-### Resume — `fileContents['portfolio/resume.md']`
+### Resume - `fileContents['portfolio/resume.md']`
 
 Further down in `portfolio-data.ts` is a `fileContents` map. The `portfolio/resume.md` entry is a full Markdown resume that renders in the preview panel. Replace all of Simon's details with yours.
 
-Also update the inline `fileContents` strings for `about.ts`, `skills.ts`, `experience.ts`, `contact.ts`, and each project file — these are what display in the editor panel. They should match your `aboutData`, `skillsData`, etc.
+Also update the inline `fileContents` strings for `about.ts`, `skills.ts`, `experience.ts`, `contact.ts`, and each project file - these are what display in the editor panel. They should match your `aboutData`, `skillsData`, etc.
 
 ---
 
@@ -179,7 +179,7 @@ In [src/app/page.tsx](src/app/page.tsx), find line 107 and update the name shown
 
 ```tsx
 <span className="text-[12px] text-muted-foreground">
-  Your Name — Portfolio        {/* ← change this */}
+  Your Name - Portfolio        {/* ← change this */}
 </span>
 ```
 
@@ -191,7 +191,7 @@ In [src/app/layout.tsx](src/app/layout.tsx):
 
 ```ts
 export const metadata: Metadata = {
-  title: 'Your Name — Portfolio',
+  title: 'Your Name - Portfolio',
   description: 'A brief description for search engines.',
 };
 ```
@@ -239,7 +239,7 @@ To add or modify themes, edit `src/lib/themes.ts`.
 
 1. Push your code to a GitHub repository
 2. Go to [vercel.com](https://vercel.com) and import your repo
-3. Click **Deploy** — no environment variables needed
+3. Click **Deploy** - no environment variables needed
 
 ### Build locally
 
@@ -271,16 +271,16 @@ src/
 
 ## Quick Customization Checklist
 
-- [ ] `portfolio-data.ts` — name, role, location, background, interests
-- [ ] `portfolio-data.ts` — skills categories and items
-- [ ] `portfolio-data.ts` — experience (jobs)
-- [ ] `portfolio-data.ts` — projects (name, description, stack, features, links, images)
-- [ ] `portfolio-data.ts` — contact links
-- [ ] `portfolio-data.ts` — resume markdown
-- [ ] `portfolio-data.ts` — inline `fileContents` strings (editor panel content)
-- [ ] `page.tsx` line 107 — title bar name
-- [ ] `layout.tsx` — browser tab title and description
-- [ ] `public/placeholder-images/` — swap in your own project screenshots
+- [ ] `portfolio-data.ts` - name, role, location, background, interests
+- [ ] `portfolio-data.ts` - skills categories and items
+- [ ] `portfolio-data.ts` - experience (jobs)
+- [ ] `portfolio-data.ts` - projects (name, description, stack, features, links, images)
+- [ ] `portfolio-data.ts` - contact links
+- [ ] `portfolio-data.ts` - resume markdown
+- [ ] `portfolio-data.ts` - inline `fileContents` strings (editor panel content)
+- [ ] `page.tsx` line 107 - title bar name
+- [ ] `layout.tsx` - browser tab title and description
+- [ ] `public/placeholder-images/` - swap in your own project screenshots
 
 ---
 
