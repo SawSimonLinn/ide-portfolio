@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="g1" cx="30%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="70%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="60%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="#0f172a"/>
+  <rect width="800" height="450" fill="url(#g1)"/>
+  <rect width="800" height="450" fill="url(#g2)"/>
+  <rect width="800" height="450" fill="url(#g3)"/>
+  <circle cx="200" cy="200" r="120" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.4"/>
+  <circle cx="200" cy="200" r="80" fill="none" stroke="#ec4899" stroke-width="1" opacity="0.3"/>
+  <circle cx="600" cy="250" r="150" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+  <circle cx="400" cy="150" r="60" fill="#6366f1" opacity="0.15"/>
+  <circle cx="550" cy="300" r="40" fill="#ec4899" opacity="0.2"/>
+  <circle cx="250" cy="350" r="50" fill="#06b6d4" opacity="0.15"/>
+  <text x="400" y="210" text-anchor="middle" font-family="monospace" font-size="18" fill="white" opacity="0.9">✦ AI Generated</text>
+  <text x="400" y="240" text-anchor="middle" font-family="monospace" font-size="14" fill="#a5b4fc" opacity="0.8">Image &amp; Blog Creator</text>
+</svg>

@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ── VS Code Dark (default) ─────────────────────────────── */
+  :root,
+  [data-theme="vscode-dark"] {
+    --background: 240 5% 12%;
+    --foreground: 240 5% 83%;
+    --card: 240 4% 15%;
+    --card-foreground: 240 5% 83%;
+    --popover: 240 5% 12%;
+    --popover-foreground: 240 5% 83%;
+    --primary: 206 60% 59%;
+    --primary-foreground: 240 5% 12%;
+    --secondary: 240 4% 20%;
+    --secondary-foreground: 240 5% 95%;
+    --muted: 240 4% 20%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 180 100% 81%;
+    --accent-foreground: 240 5% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 22%;
+    --input: 240 4% 22%;
+    --ring: 206 60% 59%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 4% 15%;
+    --sidebar-foreground: 240 5% 83%;
+
+    --syntax-text: 240 5% 83%;
+    --syntax-comment: 98 26% 47%;
+    --syntax-keyword: 206 60% 59%;
+    --syntax-string: 104 26% 47%;
+    --syntax-variable: 308 33% 64%;
+    --syntax-function: 21 50% 63%;
+    --syntax-tag: 206 60% 59%;
+    --syntax-punctuation: 240 5% 65%;
+
+    --terminal-bg: #1e1e1e;
+    --terminal-fg: #d4d4d4;
+    --terminal-cmd: #9cdcfe;
+    --terminal-error: #f48771;
+    --terminal-accent: #4ec9b0;
+  }
+
+  /* ── Dracula ────────────────────────────────────────────── */
+  [data-theme="dracula"] {
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --card: 232 14% 16%;
+    --card-foreground: 60 30% 96%;
+    --popover: 231 15% 18%;
+    --popover-foreground: 60 30% 96%;
+    --primary: 265 89% 78%;
+    --primary-foreground: 231 15% 18%;
+    --secondary: 231 13% 22%;
+    --secondary-foreground: 60 30% 96%;
+    --muted: 231 13% 22%;
+    --muted-foreground: 231 13% 60%;
+    --accent: 135 94% 65%;
+    --accent-foreground: 231 15% 18%;
+    --destructive: 0 100% 67%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 231 13% 26%;
+    --input: 231 13% 26%;
+    --ring: 265 89% 78%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 232 14% 16%;
+    --sidebar-foreground: 60 30% 96%;
+
+    --syntax-text: 60 30% 96%;
+    --syntax-comment: 231 13% 52%;
+    --syntax-keyword: 265 89% 78%;
+    --syntax-string: 65 92% 76%;
+    --syntax-variable: 191 97% 77%;
+    --syntax-function: 36 100% 71%;
+    --syntax-tag: 265 89% 78%;
+    --syntax-punctuation: 231 13% 60%;
+
+    --terminal-bg: #282a36;
+    --terminal-fg: #f8f8f2;
+    --terminal-cmd: #8be9fd;
+    --terminal-error: #ff5555;
+    --terminal-accent: #50fa7b;
+  }
+
+  /* ── Light ──────────────────────────────────────────────── */
+  [data-theme="light"] {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 12%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+    --primary: 207 90% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 12%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 207 90% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 207 90% 40%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 95%;
+    --sidebar-foreground: 0 0% 12%;
+
+    --syntax-text: 0 0% 12%;
+    --syntax-comment: 0 0% 55%;
+    --syntax-keyword: 207 90% 38%;
+    --syntax-string: 120 40% 35%;
+    --syntax-variable: 280 60% 50%;
+    --syntax-function: 30 70% 40%;
+    --syntax-tag: 207 90% 38%;
+    --syntax-punctuation: 0 0% 50%;
+
+    --terminal-bg: #f5f5f5;
+    --terminal-fg: #1f1f1f;
+    --terminal-cmd: #0066bf;
+    --terminal-error: #d32f2f;
+    --terminal-accent: #107d57;
+  }
+
+  /* ── GitHub Dark ────────────────────────────────────────── */
+  [data-theme="github"] {
+    --background: 215 14% 15%;
+    --foreground: 210 16% 73%;
+    --card: 217 16% 13%;
+    --card-foreground: 210 16% 73%;
+    --popover: 215 14% 15%;
+    --popover-foreground: 210 16% 73%;
+    --primary: 213 89% 64%;
+    --primary-foreground: 215 14% 15%;
+    --secondary: 215 14% 20%;
+    --secondary-foreground: 210 16% 87%;
+    --muted: 215 14% 20%;
+    --muted-foreground: 210 13% 50%;
+    --accent: 122 28% 51%;
+    --accent-foreground: 215 14% 15%;
+    --destructive: 4 72% 58%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 14% 22%;
+    --input: 215 14% 22%;
+    --ring: 213 89% 64%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 217 16% 13%;
+    --sidebar-foreground: 210 16% 73%;
+
+    --syntax-text: 210 16% 73%;
+    --syntax-comment: 215 14% 45%;
+    --syntax-keyword: 207 100% 77%;
+    --syntax-string: 122 28% 66%;
+    --syntax-variable: 213 89% 70%;
+    --syntax-function: 32 100% 72%;
+    --syntax-tag: 213 89% 64%;
+    --syntax-punctuation: 210 13% 52%;
+
+    --terminal-bg: #22272e;
+    --terminal-fg: #adbac7;
+    --terminal-cmd: #6cb6ff;
+    --terminal-error: #e5534b;
+    --terminal-accent: #57ab5a;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

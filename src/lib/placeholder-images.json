@@ -1,0 +1,22 @@
+{
+  "placeholderImages": [
+    {
+      "id": "1",
+      "description": "A modern dashboard interface with various charts and graphs.",
+      "imageUrl": "/placeholder-images/1.jpg",
+      "imageHint": "dashboard analytics"
+    },
+    {
+      "id": "2",
+      "description": "A close-up of a code editor showing colorful syntax-highlighted code.",
+      "imageUrl": "/placeholder-images/2.jpg",
+      "imageHint": "code editor"
+    },
+    {
+      "id": "3",
+      "description": "An abstract digital artwork with vibrant colors and fluid shapes.",
+      "imageUrl": "/placeholder-images/3.jpg",
+      "imageHint": "abstract art"
+    }
+  ]
+}
