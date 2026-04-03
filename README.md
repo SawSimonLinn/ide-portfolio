@@ -1,5 +1,20 @@
 # DevIDE Portfolio — VS Code-Style Portfolio Template
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 15">
+  <img src="https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/themes-6-purple?style=for-the-badge" alt="6 Themes">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Proprietary-green?style=for-the-badge" alt="Proprietary License"></a>
+</p>
+
+<p align="center">
+  <a href="https://ide-portfolio-chi.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-▶_View-black?style=flat-square&logo=vercel&logoColor=white" alt="Live Demo"></a>
+  <img src="https://img.shields.io/badge/deploy-Vercel-black?style=flat-square&logo=vercel" alt="Deploy on Vercel">
+  <img src="https://img.shields.io/badge/one--file_setup-portfolio--data.ts-orange?style=flat-square" alt="One file setup">
+</p>
+
+![alt text](image-1.png)
 A portfolio that looks and feels like Visual Studio Code. Built with Next.js, TypeScript, and Tailwind CSS.
 
 ---
@@ -36,7 +51,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:9002](http://localhost:9002) in your browser.
 
 ---
 
