@@ -4,7 +4,7 @@
 
 Most developer portfolios look the same. This one doesn't.
 
-DevIDE turns your personal site into a fully functional-looking code editor — complete with a file explorer, editor tabs, resizable panels, a terminal, and theme switching. Recruiters open it and do a double-take. That's the point.
+DevIDE turns your personal site into a fully functional-looking code editor - complete with a file explorer, editor tabs, resizable panels, a terminal, and theme switching. Recruiters open it and do a double-take. That's the point.
 
 ![DevIDE Portfolio preview](image-1.png)
 
@@ -12,11 +12,11 @@ DevIDE turns your personal site into a fully functional-looking code editor — 
 
 ## Why This Hits Different
 
-- **Impress recruiters in seconds** — your portfolio looks like you're already working
-- **Show your skills like a real developer** — not a template, a workspace
-- **No design skills needed** — the IDE layout does the heavy lifting
-- **One file to customize** — all your personal content lives in `portfolio-data.ts`, that's it
-- **No backend required** — deploy anywhere in minutes
+- **Impress recruiters in seconds** - your portfolio looks like you're already working
+- **Show your skills like a real developer** - not a template, a workspace
+- **No design skills needed** - the IDE layout does the heavy lifting
+- **One file to customize** - all your personal content lives in `portfolio-data.ts`, that's it
+- **No backend required** - deploy anywhere in minutes
 
 > "All of your personal content lives in one file."
 > That's not a feature. That's a superpower.
@@ -26,7 +26,7 @@ DevIDE turns your personal site into a fully functional-looking code editor — 
 ## What You Get
 
 - VS Code-style layout: file explorer + editor tabs + live preview
-- Resizable panels — feels premium, works perfectly
+- Resizable panels - feels premium, works perfectly
 - Multiple built-in themes (switch with one click)
 - Responsive layout for desktop and mobile
 - Project previews, resume, contact, and experience sections
@@ -65,13 +65,13 @@ Everything personal lives in one file:
 src/lib/portfolio-data.ts
 ```
 
-Edit your name, role, bio, skills, experience, projects, and contact links — all in one place.
+Edit your name, role, bio, skills, experience, projects, and contact links - all in one place.
 
 You may also want to update:
 
-- `src/app/layout.tsx` — browser tab title and meta description
-- `src/app/page.tsx` — title bar name
-- `public/placeholder-images/` — your project screenshots
+- `src/app/layout.tsx` - browser tab title and meta description
+- `src/app/page.tsx` - title bar name
+- `public/placeholder-images/` - your project screenshots
 
 ---
 
