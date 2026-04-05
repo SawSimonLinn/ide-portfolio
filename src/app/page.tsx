@@ -10,16 +10,20 @@ import { Terminal, type TerminalHandle } from '@/components/ide/terminal';
 import { ThemeSwitcher } from '@/components/ide/theme-switcher';
 import { useTheme } from '@/hooks/use-theme';
 import { themes } from '@/lib/themes';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { ImperativePanelHandle } from 'react-resizable-panels';
-import { Plus, Trash2, RotateCcw, GitBranch, XCircle, AlertTriangle, PanelRight, PanelBottom } from 'lucide-react';
+import { Plus, Trash2, RotateCcw, GitBranch, XCircle, AlertTriangle, PanelRight, PanelBottom, FolderOpen, FileCode, Eye, TerminalSquare } from 'lucide-react';
 
 export type PortfolioFile = {
   path: string;
   content: string;
 };
 
+type MobileTab = 'explorer' | 'editor' | 'preview' | 'terminal';
+
 export default function Home() {
   const { theme, setTheme } = useTheme();
+  const isMobile = useIsMobile();
   const [openFiles, setOpenFiles] = useState<PortfolioFile[]>([]);
   const [activeFile, setActiveFile] = useState<PortfolioFile | null>(null);
   const [previewKey, setPreviewKey] = useState(0);
@@ -28,6 +32,7 @@ export default function Home() {
   const terminalPanelRef = useRef<ImperativePanelHandle>(null);
   const [previewCollapsed, setPreviewCollapsed] = useState(false);
   const [terminalCollapsed, setTerminalCollapsed] = useState(false);
+  const [mobileTab, setMobileTab] = useState<MobileTab>('explorer');
 
   const togglePreview = () => {
     if (previewCollapsed) previewPanelRef.current?.expand();
@@ -52,6 +57,7 @@ export default function Home() {
         setOpenFiles(prev => [...prev, file]);
       }
       setActiveFile(file);
+      setMobileTab('editor');
     }
   }, [openFiles, fileContents]);
 
@@ -86,6 +92,144 @@ export default function Home() {
     ? activeFile.path.endsWith('.md') ? 'Markdown' : 'TypeScript'
     : 'Plain Text';
 
+  // ── Title bar (shared) ─────────────────────────────────────────────────────
+  const titleBar = (
+    <div
+      className="flex-shrink-0 flex items-center justify-center px-4 select-none relative"
+      style={{
+        height: '30px',
+        backgroundColor: 'hsl(var(--sidebar-background))',
+        borderBottom: '1px solid hsl(var(--border))',
+      }}
+    >
+      <div className="absolute left-4 flex items-center gap-1.5">
+        <div className="w-3 h-3 rounded-full bg-red-500/70" />
+        <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+        <div className="w-3 h-3 rounded-full bg-green-500/70" />
+      </div>
+      <span className="text-[12px] text-muted-foreground">Simon Linn — Portfolio</span>
+      <div className="absolute right-4">
+        <ThemeSwitcher current={theme} onChange={setTheme} />
+      </div>
+    </div>
+  );
+
+  // ── Mobile layout ──────────────────────────────────────────────────────────
+  if (isMobile) {
+    const mobileTabDefs: { id: MobileTab; label: string; icon: React.ReactNode }[] = [
+      { id: 'explorer', label: 'Files', icon: <FolderOpen size={18} /> },
+      { id: 'editor',   label: 'Editor', icon: <FileCode size={18} /> },
+      { id: 'preview',  label: 'Preview', icon: <Eye size={18} /> },
+      { id: 'terminal', label: 'Terminal', icon: <TerminalSquare size={18} /> },
+    ];
+
+    return (
+      <main className="h-[100dvh] bg-background text-foreground font-code text-sm flex flex-col">
+        {titleBar}
+
+        {/* Panel area */}
+        <div className="flex-1 min-h-0 overflow-hidden">
+          {/* Explorer */}
+          <div className={`h-full overflow-y-auto p-2 bg-sidebar-background ${mobileTab === 'explorer' ? 'block' : 'hidden'}`}>
+            <div className="flex items-center justify-between px-2 mb-2">
+              <p className="text-xs uppercase text-muted-foreground">Explorer</p>
+            </div>
+            <FileExplorer
+              tree={fileTree}
+              onSelect={handleFileSelect}
+              activePath={activeFile?.path}
+            />
+          </div>
+
+          {/* Editor */}
+          <div className={`h-full ${mobileTab === 'editor' ? 'flex flex-col' : 'hidden'}`}>
+            <EditorPanel
+              openFiles={openFiles}
+              activeFile={activeFile}
+              onCloseTab={handleCloseTab}
+              onTabSelect={handleTabSelect}
+            />
+          </div>
+
+          {/* Preview */}
+          <div className={`h-full flex flex-col ${mobileTab === 'preview' ? 'flex' : 'hidden'}`}>
+            <div
+              className="text-xs uppercase text-muted-foreground px-2.5 border-b border-border bg-sidebar-background flex-shrink-0 flex items-center justify-between"
+              style={{ height: '35px' }}
+            >
+              <span>Preview</span>
+              <button
+                title="Refresh Preview"
+                onClick={() => setPreviewKey(k => k + 1)}
+                className="p-1 rounded hover:bg-muted/60 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <RotateCcw size={13} />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              {activeFile ? (
+                <AiGeneratedFilePreview
+                  key={`${activeFile.path}-${previewKey}`}
+                  filePath={activeFile.path}
+                  fileContent={activeFile.content}
+                />
+              ) : (
+                <div className="p-4 text-center text-muted-foreground">Select a file to see a preview.</div>
+              )}
+            </div>
+          </div>
+
+          {/* Terminal */}
+          <div className={`h-full flex flex-col ${mobileTab === 'terminal' ? 'flex' : 'hidden'}`}>
+            <div
+              className="text-xs uppercase text-muted-foreground px-2.5 border-b border-border bg-sidebar-background flex-shrink-0 flex items-center justify-between"
+              style={{ height: '35px' }}
+            >
+              <span>Terminal</span>
+              <div className="flex items-center gap-0.5">
+                <button
+                  title="Clear Terminal"
+                  onClick={() => terminalRef.current?.clear()}
+                  className="p-1 rounded hover:bg-muted/60 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Trash2 size={13} />
+                </button>
+              </div>
+            </div>
+            <div className="flex-1 min-h-0">
+              <Terminal ref={terminalRef} />
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom tab bar */}
+        <div
+          className="flex-shrink-0 flex border-t select-none"
+          style={{
+            backgroundColor: 'hsl(var(--sidebar-background))',
+            borderColor: 'hsl(var(--border))',
+          }}
+        >
+          {mobileTabDefs.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setMobileTab(tab.id)}
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 text-[10px] transition-colors ${
+                mobileTab === tab.id
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              {tab.icon}
+              <span>{tab.label}</span>
+            </button>
+          ))}
+        </div>
+      </main>
+    );
+  }
+
+  // ── Desktop layout ─────────────────────────────────────────────────────────
   return (
     <main className="h-screen bg-background text-foreground font-code text-sm flex flex-col">
       {/* VS Code-style title bar */}
