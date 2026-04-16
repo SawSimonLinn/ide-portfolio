@@ -286,9 +286,11 @@ function ResumePreview() {
       <Separator />
 
       <div className="text-center">
-        <Button variant="outline" size="sm" className="text-xs gap-1.5">
-          <ExternalLink size={11} />
-          Download Full Resume
+        <Button variant="outline" size="sm" className="text-xs gap-1.5" asChild>
+          <a href="/resume.pdf" download="Saw_Simon_Linn_Resume.pdf">
+            <ExternalLink size={11} />
+            Download Full Resume
+          </a>
         </Button>
       </div>
     </div>
