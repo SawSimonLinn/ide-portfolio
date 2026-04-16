@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark rounded background matching VS Code dark theme -->
+  <rect width="32" height="32" rx="6" fill="#1c1c1f"/>
+  <!-- Left angle bracket -->
+  <path d="M6 16 L11 10 L12.8 11.6 L9.4 16 L12.8 20.4 L11 22 Z" fill="#569cd6"/>
+  <!-- Right angle bracket -->
+  <path d="M26 16 L21 22 L19.2 20.4 L22.6 16 L19.2 11.6 L21 10 Z" fill="#569cd6"/>
+  <!-- Forward slash -->
+  <path d="M19 9 L13 23 L11.2 22.4 L17.2 8.4 Z" fill="#9efefe"/>
+</svg>
